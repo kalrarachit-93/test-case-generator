@@ -74,7 +74,17 @@ For the password-reset ticket, the agent generates tests like:
 
 Note the inclusion of "comparable response time" — that's the agent catching a real timing-based enumeration attack vector that's not in the literal acceptance criteria. Generated test cases consistently include this kind of inferred edge case.
 
-
+```
+4. [NEGATIVE] Unregistered email shows generic non-revealing message
+   Steps:
+     1. Navigate to the password reset request form.
+     2. Enter a syntactically valid but unregistered email.
+     3. Click Submit.
+   Expected: The UI displays the same generic message shown for registered
+   emails. The response does not reveal whether the email is registered
+   (same wording, same status code, comparable response time). No email
+   is delivered.
+```
 
 \## Setup
 
